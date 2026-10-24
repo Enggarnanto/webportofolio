@@ -8,7 +8,7 @@ featured: true
 status: "Berjalan"
 role: "Social Media Officer"
 accent: "lime"
-cover: "/images/projects/latiseducation/06.webp"
+cover: "/images/projects/latiseducation/Kolase 1.png"
 galleryFolder: "/images/projects/latiseducation"
 galleryCount: 17
 galleryAlt: "Karya social media dan pemasaran digital Latis Education"
