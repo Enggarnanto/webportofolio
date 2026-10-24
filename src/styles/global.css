@@ -174,6 +174,7 @@ button { font: inherit; }
 .profile-facts div { padding: 20px; background: var(--ink); }
 .profile-facts dt { margin-bottom: 7px; color: color-mix(in srgb, var(--bg) 55%, transparent); font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; }
 .profile-facts dd { margin: 0; font-size: .82rem; }
+.cv-link { display: inline-flex; gap: 18px; margin-top: 28px; border-bottom: 1px solid currentColor; padding: 7px 0; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
 .research-focus { margin-top: 45px; padding-top: 25px; border-top: 1px solid color-mix(in srgb, var(--bg) 20%, transparent); }
 .research-focus span { color: color-mix(in srgb, var(--bg) 55%, transparent); font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; }
 .research-focus p { margin: 10px 0 0; max-width: 740px; color: color-mix(in srgb, var(--bg) 70%, transparent); font-size: .85rem; }
@@ -252,6 +253,12 @@ button { font: inherit; }
 .gallery-grid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #111827; }
 .gallery-grid .wide img { aspect-ratio: 16 / 9; }
 .gallery-grid figcaption, .video-grid figcaption { min-height: 48px; padding: 14px 16px; color: var(--muted); font-size: .72rem; }
+.gallery-more { margin-top: 18px; }
+.gallery-more summary { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--line); padding: 18px 20px; cursor: pointer; font-size: .78rem; list-style: none; }
+.gallery-more summary::-webkit-details-marker { display: none; }
+.gallery-more summary span { font-size: 1.1rem; transition: transform .2s; }
+.gallery-more[open] summary { margin-bottom: 18px; }
+.gallery-more[open] summary span { transform: rotate(180deg); }
 .video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .video-grid video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #111; }
 

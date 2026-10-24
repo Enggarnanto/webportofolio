@@ -26,6 +26,12 @@ videos:
   - video: "/videos/projects/kubangan-promo.mp4"
     poster: "/images/projects/kubangan-cover.webp"
     title: "Konten edukasi produk kitchen set"
+  - video: "/videos/projects/kubangan-showcase.mp4"
+    poster: "/images/projects/kubangan-cover.webp"
+    title: "Video showcase area dan produk Kubangan Kitchen"
+  - video: "/videos/projects/kubangan-cuci-gudang.mp4"
+    poster: "/images/projects/kubangan-editing.webp"
+    title: "Konten promosi program cuci gudang"
 ---
 
 ## Fokus pekerjaan

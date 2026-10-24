@@ -8,23 +8,10 @@ featured: false
 status: "Selesai"
 role: "Graphic Designer & Instagram Admin"
 accent: "orange"
-cover: "/images/projects/juke-tequila.webp"
-gallery:
-  - image: "/images/projects/juke-tequila.webp"
-    alt: "Desain ulasan lagu Tequila Sunrise untuk JukeFolks"
-    caption: "Template ulasan lagu untuk konten editorial."
-  - image: "/images/projects/juke-peach.webp"
-    alt: "Desain konten lagu Peach Pickin Time Down in Georgia"
-    caption: "Eksplorasi komposisi editorial dan identitas kanal."
-  - image: "/images/projects/juke-coldplay.webp"
-    alt: "Desain fakta musik Coldplay"
-    caption: "Konten fakta musik untuk feed Instagram."
-  - image: "/images/projects/juke-hari-musik.webp"
-    alt: "Desain Hari Musik Nasional JukeFolks"
-    caption: "Konten momentum Hari Musik Nasional."
-  - image: "/images/projects/juke-editorial.webp"
-    alt: "Desain artikel editorial musik JukeFolks"
-    caption: "Format editorial untuk informasi dan cerita musik."
+cover: "/images/projects/jukefolks/07.webp"
+galleryFolder: "/images/projects/jukefolks"
+galleryCount: 10
+galleryAlt: "Desain konten musik JukeFolks"
 ---
 
 ## Fokus pekerjaan

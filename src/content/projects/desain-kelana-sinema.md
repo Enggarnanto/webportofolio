@@ -8,23 +8,10 @@ featured: false
 status: "Selesai"
 role: "Graphic Design Assistant"
 accent: "violet"
-cover: "/images/projects/kelana-rekomendasi.webp"
-gallery:
-  - image: "/images/projects/kelana-rekomendasi.webp"
-    alt: "Desain rekomendasi film Dear Ringers untuk Kelana Sinema"
-    caption: "Konten rekomendasi film untuk feed Instagram."
-  - image: "/images/projects/kelana-informatif.webp"
-    alt: "Desain sesi ngobrol santai bersama Dom Dharma"
-    caption: "Materi informasi acara komunitas film."
-  - image: "/images/projects/kelana-thor.webp"
-    alt: "Desain rekomendasi buku Thor"
-    caption: "Konten informatif bertema buku dan budaya populer."
-  - image: "/images/projects/kelana-pengumuman.webp"
-    alt: "Pengumuman Road to Jakarta Independent Film Festival 2022"
-    caption: "Materi pengumuman rangkaian JIFF 2022."
-  - image: "/images/projects/kelana-hari-raya.webp"
-    alt: "Ucapan Hari Kenaikan Isa Almasih dari Kelana Sinema"
-    caption: "Konten kalender peringatan hari besar."
+cover: "/images/projects/kelana-sinema/06.webp"
+galleryFolder: "/images/projects/kelana-sinema"
+galleryCount: 6
+galleryAlt: "Desain konten film Kelana Sinema"
 ---
 
 ## Fokus pekerjaan

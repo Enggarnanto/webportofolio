@@ -13,9 +13,19 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, description, category, technologies, status, role, date, accent, cover, gallery, videos, demo, github } = project.data;
+const { title, description, category, technologies, status, role, date, accent, cover, gallery, galleryFolder, galleryCount, galleryAlt, videos, demo, github } = project.data;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const assetUrl = (path: string) => /^https?:\/\//.test(path) ? path : `${base}${path.replace(/^\//, '')}`;
+const generatedGallery = galleryFolder
+  ? Array.from({ length: galleryCount }, (_, index) => ({
+      image: `${galleryFolder.replace(/\/$/, '')}/${String(index + 1).padStart(2, '0')}.webp`,
+      alt: `${galleryAlt ?? `Dokumentasi karya ${title}`} ${index + 1}`,
+      caption: undefined,
+    }))
+  : [];
+const completeGallery = generatedGallery.length > 0 ? generatedGallery : gallery;
+const visibleGallery = completeGallery.slice(0, 8);
+const remainingGallery = completeGallery.slice(8);
 const coverUrl = cover
   ? assetUrl(cover)
   : undefined;
@@ -58,20 +68,33 @@ const coverUrl = cover
       <div class="prose"><Content /></div>
     </div>
 
-    {gallery.length > 0 && (
+    {completeGallery.length > 0 && (
       <section class="project-gallery" aria-labelledby="gallery-title">
         <header>
           <p class="kicker">Dokumentasi karya</p>
           <h2 id="gallery-title">Proses dan hasil<br /><em>pilihan.</em></h2>
         </header>
         <div class="gallery-grid">
-          {gallery.map((item, index) => (
+          {visibleGallery.map((item, index) => (
             <figure class:list={{ wide: index % 5 === 0 }}>
               <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
               {item.caption && <figcaption>{item.caption}</figcaption>}
             </figure>
           ))}
         </div>
+        {remainingGallery.length > 0 && (
+          <details class="gallery-more">
+            <summary>Tampilkan semua {completeGallery.length} karya <span>↓</span></summary>
+            <div class="gallery-grid">
+              {remainingGallery.map((item, index) => (
+                <figure class:list={{ wide: index % 5 === 0 }}>
+                  <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
+                  {item.caption && <figcaption>{item.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          </details>
+        )}
       </section>
     )}
 

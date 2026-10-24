@@ -8,23 +8,10 @@ featured: false
 status: "Selesai"
 role: "Graphic Designer · Media Division"
 accent: "lime"
-cover: "/images/projects/comma-double-exposure.webp"
-gallery:
-  - image: "/images/projects/comma-double-exposure.webp"
-    alt: "Eksplorasi manipulasi foto double exposure"
-    caption: "Latihan manipulasi foto dan komposisi visual."
-  - image: "/images/projects/comma-illustration.webp"
-    alt: "Ilustrasi digital bergaya pop"
-    caption: "Eksplorasi ilustrasi dan warna."
-  - image: "/images/projects/comma-floral.webp"
-    alt: "Ilustrasi bunga dengan palet merah muda dan hijau"
-    caption: "Studi bentuk, warna, dan keseimbangan visual."
-  - image: "/images/projects/comma-editorial.webp"
-    alt: "Desain editorial digital"
-    caption: "Eksperimen visual untuk kebutuhan media digital."
-  - image: "/images/projects/comma-magazine.webp"
-    alt: "Desain halaman majalah digital"
-    caption: "Penerapan desain dan content writing pada media editorial."
+cover: "/images/projects/commadesign/15.webp"
+galleryFolder: "/images/projects/commadesign"
+galleryCount: 38
+galleryAlt: "Eksplorasi desain grafis Commadesign"
 ---
 
 ## Fokus pekerjaan

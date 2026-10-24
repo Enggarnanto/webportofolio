@@ -112,6 +112,22 @@ collections:
           - { label: Video MP4, name: video, widget: file }
           - { label: Poster, name: poster, widget: image, required: false }
           - { label: Judul, name: title, widget: string }
+      - label: Folder galeri teroptimasi
+        name: galleryFolder
+        widget: string
+        required: false
+        hint: Pengaturan internal untuk galeri aset yang sudah diproses.
+      - label: Jumlah karya teroptimasi
+        name: galleryCount
+        widget: number
+        value_type: int
+        min: 0
+        default: 0
+        required: false
+      - label: Teks alternatif galeri
+        name: galleryAlt
+        widget: string
+        required: false
       - label: URL demo
         name: demo
         widget: string

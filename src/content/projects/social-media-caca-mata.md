@@ -8,29 +8,10 @@ featured: true
 status: "Selesai"
 role: "Graphic Designer"
 accent: "orange"
-cover: "/images/projects/cacamata-cover.webp"
-gallery:
-  - image: "/images/projects/cacamata-cover.webp"
-    alt: "Desain promosi pemeriksaan mata Caca Mata"
-    caption: "Konten promosi layanan pemeriksaan mata."
-  - image: "/images/projects/cacamata-product-1.webp"
-    alt: "Desain informasi produk frame dan lensa Caca Mata"
-    caption: "Pengenalan kategori produk frame dan lensa."
-  - image: "/images/projects/cacamata-product-2.webp"
-    alt: "Desain informasi pembelian produk Caca Mata"
-    caption: "Informasi pembelian offline dan melalui WhatsApp."
-  - image: "/images/projects/cacamata-location-1.webp"
-    alt: "Desain informasi lokasi toko Caca Mata"
-    caption: "Pembuka seri konten lokasi toko."
-  - image: "/images/projects/cacamata-location-2.webp"
-    alt: "Desain alamat offline store Caca Mata"
-    caption: "Informasi alamat offline store di Kota Malang."
-  - image: "/images/projects/cacamata-giveaway-1.webp"
-    alt: "Desain pengumuman giveaway Caca Mata"
-    caption: "Key visual kampanye giveaway."
-  - image: "/images/projects/cacamata-giveaway-2.webp"
-    alt: "Desain syarat dan ketentuan giveaway Caca Mata"
-    caption: "Informasi mekanisme dan periode giveaway."
+cover: "/images/projects/caca-mata/01.webp"
+galleryFolder: "/images/projects/caca-mata"
+galleryCount: 9
+galleryAlt: "Desain promosi dan media sosial Caca Mata"
 ---
 
 ## Fokus pekerjaan

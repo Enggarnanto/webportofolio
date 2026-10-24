@@ -26,6 +26,9 @@ gallery:
   - image: "/images/projects/mtalk-article-2.webp"
     alt: "Thumbnail artikel undangan digital Kadio"
     caption: "Desain thumbnail artikel review layanan digital."
+  - image: "/images/projects/mtalkblog/source-thumbnail.webp"
+    alt: "Preview file kerja desain thumbnail artikel MTalkblog"
+    caption: "Preview sumber desain ODG untuk proses produksi thumbnail."
 ---
 
 ## Tentang proyek
