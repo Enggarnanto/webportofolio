@@ -750,6 +750,7 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
   text-transform: uppercase;
 }
 .service-invite .kicker { color: var(--lime); }
+.service-offer { min-width: 0; }
 .service-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .service-pills a {
   display: flex;
@@ -773,6 +774,53 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
 .service-pills b, .service-pills small { display: block; }
 .service-pills b { font-size: .78rem; }
 .service-pills small { margin-top: 3px; color: var(--muted); font-size: .6rem; line-height: 1.25; }
+.software-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, .28);
+  padding-top: 18px;
+}
+.software-strip > p {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--lime);
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.software-strip > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.software-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 999px;
+  padding: 5px 10px 5px 5px;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 700;
+}
+.software-strip i {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #090909;
+  font-size: .58rem;
+  font-style: normal;
+  font-weight: 900;
+}
+.software-canva { background: linear-gradient(135deg, #00c4cc, #7d2ae8); color: #fff !important; }
+.software-ai { background: #ff9a00; }
+.software-ps { background: #31a8ff; }
+.software-pr { background: #9999ff; }
+.software-capcut { background: #fff; }
+.software-office { background: #f25022; color: #fff !important; }
 
 .project-grid {
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -817,6 +865,7 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
   .hero { min-height: auto; }
   .hero-skills, .platform-list { width: 100%; }
   .service-pills { grid-template-columns: 1fr; }
+  .software-strip { align-items: flex-start; flex-direction: column; gap: 12px; }
 }
 
 @media (max-width: 600px) {
