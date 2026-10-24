@@ -838,3 +838,48 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
 @media (max-width: 520px) {
   .platform-list { padding-right: 120px; }
 }
+
+/* Dense masonry gallery for project detail pages */
+.project-gallery .gallery-grid {
+  display: block;
+  column-count: 4;
+  column-gap: 8px;
+}
+.project-gallery .gallery-grid figure,
+.project-gallery .gallery-grid figure.wide {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 8px;
+  break-inside: avoid;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+}
+.project-gallery .gallery-grid img,
+.project-gallery .gallery-grid .wide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: initial;
+  border-radius: 9px;
+  background: transparent;
+}
+.project-gallery .gallery-grid figcaption {
+  min-height: 0;
+  padding: 7px 2px 2px;
+  font-size: .62rem;
+}
+
+@media (max-width: 980px) {
+  .project-gallery .gallery-grid { column-count: 3; }
+}
+
+@media (max-width: 640px) {
+  .project-gallery .gallery-grid { column-count: 2; column-gap: 6px; }
+  .project-gallery .gallery-grid figure,
+  .project-gallery .gallery-grid figure.wide { margin-bottom: 6px; border-radius: 6px; }
+  .project-gallery .gallery-grid img,
+  .project-gallery .gallery-grid .wide img { border-radius: 6px; }
+}
