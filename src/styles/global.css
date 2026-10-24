@@ -834,3 +834,7 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
   .project-card .project-meta { align-items: start; flex-direction: column; gap: 3px; }
   .project-card .project-meta time { display: none; }
 }
+
+@media (max-width: 520px) {
+  .platform-list { padding-right: 120px; }
+}
