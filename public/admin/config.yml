@@ -55,14 +55,14 @@ collections:
       - label: Kategori
         name: category
         widget: select
-        options: [Website, Web App, Creative Dev, UI/UX, Lainnya]
-      - label: Teknologi
+        options: [Social Media, Content Production, Video Content, Public Relations, Lainnya]
+      - label: Keahlian dan perangkat
         name: technologies
         widget: list
         allow_add: true
         collapsed: false
         field:
-          label: Teknologi
+          label: Keahlian atau perangkat
           name: technology
           widget: string
       - label: Tampilkan di beranda
@@ -72,8 +72,12 @@ collections:
       - label: Status
         name: status
         widget: select
-        options: [Konsep, Dalam pengerjaan, Selesai]
+        options: [Konsep, Berjalan, Selesai]
         default: Selesai
+      - label: Peran
+        name: role
+        widget: string
+        default: Content Strategy & Production
       - label: Warna aksen
         name: accent
         widget: select

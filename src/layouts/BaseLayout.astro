@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = 'Galih Enggar Nanto — Portfolio',
-  description = 'Portofolio Galih Enggar Nanto yang menampilkan project, eksplorasi, dan karya digital.',
+  title = 'Galih Enggarnanto — Social Media Officer & Content Creator',
+  description = 'Portofolio Galih Enggarnanto, Social Media Officer dan Content Creator yang menggabungkan strategi, storytelling, dan kreativitas visual.',
 } = Astro.props;
 
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
@@ -37,7 +37,7 @@ const isProjects = currentPath.includes('/projects');
     <header class="site-header shell">
       <a class="brand" href={base} aria-label="Kembali ke beranda">
         <span class="brand-mark">GE</span>
-        <span>Galih Enggar Nanto</span>
+        <span>Galih Enggarnanto</span>
       </a>
 
       <nav aria-label="Navigasi utama">
@@ -56,12 +56,12 @@ const isProjects = currentPath.includes('/projects');
     </main>
 
     <footer class="site-footer shell">
-      <p>Dirancang dan dibangun dengan rasa ingin tahu.</p>
+      <p>Strategi, cerita, dan visual dalam satu ruang.</p>
       <div class="footer-links">
         <a href="https://profile.mtalkblog.com" target="_blank" rel="noreferrer">Website ↗</a>
         <a href="https://www.linkedin.com/in/galih-enggarnanto/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </div>
-      <p class="copyright">© {new Date().getFullYear()} Galih Enggar Nanto</p>
+      <p class="copyright">© {new Date().getFullYear()} Galih Enggarnanto</p>
     </footer>
 
     <script>

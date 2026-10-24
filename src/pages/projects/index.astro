@@ -9,11 +9,11 @@ const projects = (await getCollection('projects')).sort(
 const categories = ['Semua', ...new Set(projects.map(({ data }) => data.category))];
 ---
 
-<BaseLayout title="Project — Galih Enggar Nanto" description="Kumpulan project pilihan Galih Enggar Nanto dalam bidang web development, UI, dan creative coding.">
+<BaseLayout title="Case Study — Galih Enggarnanto" description="Kumpulan pekerjaan dan case study Galih Enggarnanto dalam strategi konten, media sosial, dan produksi kreatif.">
   <section class="page-hero shell">
-    <p class="kicker">Arsip karya / {projects.length} project</p>
-    <h1>Project yang saya<br /><em>bangun dan pelajari.</em></h1>
-    <p class="page-intro">Kumpulan eksperimen, pekerjaan, dan solusi digital. Gunakan kategori untuk menemukan project yang relevan.</p>
+    <p class="kicker">Arsip karya / {projects.length} case study</p>
+    <h1>Strategi, proses,<br /><em>dan dampak konten.</em></h1>
+    <p class="page-intro">Dokumentasi pekerjaan dalam media sosial, produksi konten, video pendek, dan publikasi. Gunakan kategori untuk menjelajahi karya.</p>
   </section>
 
   <section class="projects-archive shell">

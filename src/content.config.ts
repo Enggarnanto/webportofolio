@@ -12,6 +12,7 @@ const projects = defineCollection({
     technologies: z.array(z.string()),
     featured: z.boolean().default(false),
     status: z.string().default('Selesai'),
+    role: z.string().default('Content Strategy & Production'),
     accent: z.enum(['lime', 'orange', 'violet', 'blue']).default('lime'),
     cover: z.string().optional(),
     demo: z.url().optional(),

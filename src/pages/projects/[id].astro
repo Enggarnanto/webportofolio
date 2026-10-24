@@ -13,14 +13,14 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, description, category, technologies, status, date, accent, cover, demo, github } = project.data;
+const { title, description, category, technologies, status, role, date, accent, cover, demo, github } = project.data;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const coverUrl = cover
   ? /^https?:\/\//.test(cover) ? cover : `${base}${cover.replace(/^\//, '')}`
   : undefined;
 ---
 
-<BaseLayout title={`${title} — Galih Enggar Nanto`} description={description}>
+<BaseLayout title={`${title} — Galih Enggarnanto`} description={description}>
   <article class="project-detail shell">
     <a class="back-link" href={`${base}projects/`}>← Kembali ke semua project</a>
     <header class="detail-header">
@@ -31,8 +31,8 @@ const coverUrl = cover
       </div>
       <dl class="project-facts">
         <div><dt>Status</dt><dd>{status}</dd></div>
-        <div><dt>Peran</dt><dd>Design & Development</dd></div>
-        <div><dt>Teknologi</dt><dd>{technologies.join(', ')}</dd></div>
+        <div><dt>Peran</dt><dd>{role}</dd></div>
+        <div><dt>Keahlian</dt><dd>{technologies.join(', ')}</dd></div>
       </dl>
     </header>
 
@@ -48,10 +48,12 @@ const coverUrl = cover
     </div>
 
     <div class="detail-body">
-      <div class="detail-links">
+      <aside class="detail-links">
+        <span>Kontribusi</span>
+        <p>{role}</p>
         {demo && <a href={demo} target="_blank" rel="noreferrer">Live demo ↗</a>}
         {github && <a href={github} target="_blank" rel="noreferrer">Source code ↗</a>}
-      </div>
+      </aside>
       <div class="prose"><Content /></div>
     </div>
   </article>
