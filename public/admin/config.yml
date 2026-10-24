@@ -92,6 +92,26 @@ collections:
         widget: image
         required: false
         hint: Disarankan rasio 4:3 dengan format WebP atau JPEG.
+      - label: Galeri karya
+        name: gallery
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.caption}}"
+        fields:
+          - { label: Gambar, name: image, widget: image }
+          - { label: Teks alternatif, name: alt, widget: string }
+          - { label: Keterangan, name: caption, widget: string, required: false }
+      - label: Video karya
+        name: videos
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.title}}"
+        fields:
+          - { label: Video MP4, name: video, widget: file }
+          - { label: Poster, name: poster, widget: image, required: false }
+          - { label: Judul, name: title, widget: string }
       - label: URL demo
         name: demo
         widget: string

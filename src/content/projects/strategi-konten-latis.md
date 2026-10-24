@@ -8,6 +8,20 @@ featured: true
 status: "Berjalan"
 role: "Social Media Officer"
 accent: "lime"
+cover: "/images/projects/latis-feeds.webp"
+gallery:
+  - image: "/images/projects/latis-feeds.webp"
+    alt: "Kumpulan desain feed Instagram Latis Education"
+    caption: "Sistem visual untuk feed Instagram dan kebutuhan kampanye."
+  - image: "/images/projects/latis-katalog.webp"
+    alt: "Katalog program Latis Education untuk WhatsApp"
+    caption: "Katalog WhatsApp berisi paket dan pilihan program belajar."
+  - image: "/images/projects/latis-website.webp"
+    alt: "Kumpulan desain banner dan kebutuhan website Latis Education"
+    caption: "Adaptasi visual untuk banner dan kebutuhan website."
+  - image: "/images/projects/latis-email.webp"
+    alt: "Key visual kampanye email marketing Latis Education"
+    caption: "Eksplorasi key visual berbantuan AI untuk email marketing."
 ---
 
 ## Fokus pekerjaan

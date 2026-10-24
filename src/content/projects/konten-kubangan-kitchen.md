@@ -8,6 +8,24 @@ featured: true
 status: "Selesai"
 role: "Digital Marketing Intern"
 accent: "orange"
+cover: "/images/projects/kubangan-cover.webp"
+gallery:
+  - image: "/images/projects/kubangan-content-plan.webp"
+    alt: "Dokumen perencanaan konten Kubangan Kitchen"
+    caption: "Content plan sebagai dasar koordinasi ide, format, dan jadwal produksi."
+  - image: "/images/projects/kubangan-performa.webp"
+    alt: "Ringkasan performa TikTok Kubangan Kitchen"
+    caption: "Tayangan video mencapai 55.973 dan penonton yang dijangkau 50.941."
+  - image: "/images/projects/kubangan-retensi.webp"
+    alt: "Grafik performa harian konten TikTok Kubangan Kitchen"
+    caption: "Grafik pemantauan performa konten selama periode kampanye."
+  - image: "/images/projects/kubangan-editing.webp"
+    alt: "Tampilan proses penyuntingan video Kubangan Kitchen"
+    caption: "Proses editing video vertikal untuk kebutuhan promosi."
+videos:
+  - video: "/videos/projects/kubangan-promo.mp4"
+    poster: "/images/projects/kubangan-cover.webp"
+    title: "Konten edukasi produk kitchen set"
 ---
 
 ## Fokus pekerjaan

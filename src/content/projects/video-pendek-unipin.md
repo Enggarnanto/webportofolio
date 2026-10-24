@@ -8,6 +8,27 @@ featured: true
 status: "Selesai"
 role: "Social Media Video Editor Intern · Video Content Creator"
 accent: "violet"
+cover: "/images/projects/unipin-tutorial.webp"
+gallery:
+  - image: "/images/projects/unipin-calendar.webp"
+    alt: "Kalender produksi konten video UniPin"
+    caption: "Kalender konten untuk menjaga ritme produksi dan publikasi."
+  - image: "/images/projects/unipin-editing.webp"
+    alt: "Timeline penyuntingan video pendek UniPin"
+    caption: "Proses editing video vertikal bertema gaming."
+  - image: "/images/projects/unipin-storage.webp"
+    alt: "Struktur folder penyimpanan aset video UniPin"
+    caption: "Manajemen aset berdasarkan batch produksi."
+videos:
+  - video: "/videos/projects/unipin-inspirasi.mp4"
+    poster: "/images/projects/unipin-inspirasi.webp"
+    title: "Konten inspirasi bertema gaming"
+  - video: "/videos/projects/unipin-meme.mp4"
+    poster: "/images/projects/unipin-meme.webp"
+    title: "Konten meme untuk audiens gamer"
+  - video: "/videos/projects/unipin-tutorial.mp4"
+    poster: "/images/projects/unipin-tutorial.webp"
+    title: "Video tutorial gameplay"
 ---
 
 ## Fokus pekerjaan

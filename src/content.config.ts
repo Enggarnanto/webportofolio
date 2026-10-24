@@ -15,6 +15,16 @@ const projects = defineCollection({
     role: z.string().default('Content Strategy & Production'),
     accent: z.enum(['lime', 'orange', 'violet', 'blue']).default('lime'),
     cover: z.string().optional(),
+    gallery: z.array(z.object({
+      image: z.string(),
+      alt: z.string(),
+      caption: z.string().optional(),
+    })).default([]),
+    videos: z.array(z.object({
+      video: z.string(),
+      poster: z.string().optional(),
+      title: z.string(),
+    })).default([]),
     demo: z.url().optional(),
     github: z.url().optional(),
   }),
