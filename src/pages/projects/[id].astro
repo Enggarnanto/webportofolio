@@ -1,0 +1,49 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, category, technologies, status, date, accent, demo, github } = project.data;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+---
+
+<BaseLayout title={`${title} — Galih Enggar Nanto`} description={description}>
+  <article class="project-detail shell">
+    <a class="back-link" href={`${base}projects/`}>← Kembali ke semua project</a>
+    <header class="detail-header">
+      <div>
+        <p class="kicker">{category} / {date.getFullYear()}</p>
+        <h1>{title}</h1>
+        <p class="detail-intro">{description}</p>
+      </div>
+      <dl class="project-facts">
+        <div><dt>Status</dt><dd>{status}</dd></div>
+        <div><dt>Peran</dt><dd>Design & Development</dd></div>
+        <div><dt>Teknologi</dt><dd>{technologies.join(', ')}</dd></div>
+      </dl>
+    </header>
+
+    <div class={`detail-visual accent-${accent}`} aria-hidden="true">
+      <span class="detail-shape one"></span><span class="detail-shape two"></span>
+      <div class="detail-browser"><i></i><i></i><i></i><b></b></div>
+    </div>
+
+    <div class="detail-body">
+      <div class="detail-links">
+        {demo && <a href={demo} target="_blank" rel="noreferrer">Live demo ↗</a>}
+        {github && <a href={github} target="_blank" rel="noreferrer">Source code ↗</a>}
+      </div>
+      <div class="prose"><Content /></div>
+    </div>
+  </article>
+</BaseLayout>

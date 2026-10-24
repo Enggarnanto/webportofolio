@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const projects = (await getCollection('projects'))
+  .filter(({ data }) => data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout>
+  <section class="hero shell">
+    <div class="hero-eyebrow"><span></span> Tersedia untuk kolaborasi</div>
+    <h1>
+      Saya merancang<br />
+      pengalaman digital<br />
+      <em>yang terasa manusiawi.</em>
+    </h1>
+    <div class="hero-bottom">
+      <p>Saya Galih Enggar Nanto, berbasis di Depok. Portofolio ini menjadi ruang untuk mendokumentasikan project dan eksplorasi digital yang saya kerjakan.</p>
+      <a class="circle-link" href="#projects" aria-label="Lihat project pilihan">↓</a>
+    </div>
+    <div class="hero-orbit" aria-hidden="true">
+      <span class="orbit-text">DESIGN · DEVELOP · DELIVER · </span>
+      <span class="orbit-dot"></span>
+    </div>
+  </section>
+
+  <section class="marquee" aria-label="Keahlian utama">
+    <div>
+      <span>WEB DEVELOPMENT</span><b>✦</b><span>UI DESIGN</span><b>✦</b><span>CREATIVE CODING</span><b>✦</b>
+      <span>WEB DEVELOPMENT</span><b>✦</b><span>UI DESIGN</span><b>✦</b><span>CREATIVE CODING</span><b>✦</b>
+    </div>
+  </section>
+
+  <section id="projects" class="section shell">
+    <header class="section-heading">
+      <div><span class="section-index">01</span><p>Karya pilihan</p></div>
+      <h2>Project yang mengubah<br />ide menjadi <em>pengalaman.</em></h2>
+    </header>
+
+    <div class="project-grid">
+      {projects.map((project, index) => <ProjectCard project={project} index={index + 1} />)}
+    </div>
+
+    <div class="section-action">
+      <a class="text-link" href={`${base}projects/`}>Lihat semua project <span>↗</span></a>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="shell about-grid">
+      <div class="about-label"><span class="section-index">02</span><p>Tentang saya</p></div>
+      <div class="about-copy">
+        <p class="lead">Saya percaya website yang baik bukan hanya terlihat menarik, tetapi juga <mark>mudah dipahami</mark> dan punya alasan di balik setiap detailnya.</p>
+        <div class="about-columns">
+          <p>Saya Galih Enggar Nanto, berdomisili di Depok, Jawa Barat. Saya menyukai proses mengubah ide menjadi pengalaman digital yang terstruktur, mudah dipahami, dan nyaman digunakan.</p>
+          <p>Portofolio ini dibangun secara statis agar cepat, mudah dirawat, dan dapat di-host gratis menggunakan GitHub Pages.</p>
+        </div>
+        <dl class="profile-facts">
+          <div><dt>Domisili</dt><dd>Depok, Jawa Barat, Indonesia</dd></div>
+          <div><dt>Tanggal lahir</dt><dd>13 Februari 2001</dd></div>
+          <div><dt>Status</dt><dd>Belum menikah</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="services section shell">
+    <header class="section-heading compact">
+      <div><span class="section-index">03</span><p>Yang saya kerjakan</p></div>
+    </header>
+    <div class="service-list">
+      <article><span>01</span><h3>Web Development</h3><p>Website responsif, cepat, dan mudah dikembangkan.</p><b>↗</b></article>
+      <article><span>02</span><h3>UI & Interaction</h3><p>Antarmuka yang jelas dengan interaksi yang terasa alami.</p><b>↗</b></article>
+      <article><span>03</span><h3>Design Systems</h3><p>Fondasi visual yang konsisten untuk produk yang bertumbuh.</p><b>↗</b></article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="shell contact-inner">
+      <p>Punya ide yang ingin diwujudkan?</p>
+      <h2>Mari membuat<br /><em>sesuatu yang berarti.</em></h2>
+      <a class="contact-link" href="mailto:galihenggarnt@gmail.com">galihenggarnt@gmail.com <span>↗</span></a>
+      <div class="contact-methods">
+        <a href="tel:+6282149408905"><small>Telepon</small><span>0821 4940 8905</span></a>
+        <a href="https://www.linkedin.com/in/galih-enggarnanto/" target="_blank" rel="noreferrer"><small>LinkedIn</small><span>galih-enggarnanto ↗</span></a>
+        <a href="https://profile.mtalkblog.com" target="_blank" rel="noreferrer"><small>Website</small><span>profile.mtalkblog.com ↗</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

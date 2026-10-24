@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Galih Enggar Nanto — Portfolio',
+  description = 'Portofolio Galih Enggar Nanto yang menampilkan project, eksplorasi, dan karya digital.',
+} = Astro.props;
+
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const currentPath = Astro.url.pathname;
+const isProjects = currentPath.includes('/projects');
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f1f0e8" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <title>{title}</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten</a>
+    <header class="site-header shell">
+      <a class="brand" href={base} aria-label="Kembali ke beranda">
+        <span class="brand-mark">GE</span>
+        <span>Galih Enggar Nanto</span>
+      </a>
+
+      <nav aria-label="Navigasi utama">
+        <a href={`${base}#about`}>Tentang</a>
+        <a class:list={{ active: isProjects }} href={`${base}projects/`}>Project</a>
+        <a href={`${base}#contact`}>Kontak</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Ganti tema" title="Ganti tema">
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer shell">
+      <p>Dirancang dan dibangun dengan rasa ingin tahu.</p>
+      <div class="footer-links">
+        <a href="https://profile.mtalkblog.com" target="_blank" rel="noreferrer">Website ↗</a>
+        <a href="https://www.linkedin.com/in/galih-enggarnanto/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <p class="copyright">© {new Date().getFullYear()} Galih Enggar Nanto</p>
+    </footer>
+
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+      button?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('portfolio-theme', next);
+      });
+    </script>
+  </body>
+</html>

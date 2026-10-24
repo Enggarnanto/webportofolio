@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const categories = ['Semua', ...new Set(projects.map(({ data }) => data.category))];
+---
+
+<BaseLayout title="Project — Galih Enggar Nanto" description="Kumpulan project pilihan Galih Enggar Nanto dalam bidang web development, UI, dan creative coding.">
+  <section class="page-hero shell">
+    <p class="kicker">Arsip karya / {projects.length} project</p>
+    <h1>Project yang saya<br /><em>bangun dan pelajari.</em></h1>
+    <p class="page-intro">Kumpulan eksperimen, pekerjaan, dan solusi digital. Gunakan kategori untuk menemukan project yang relevan.</p>
+  </section>
+
+  <section class="projects-archive shell">
+    <div class="filters" aria-label="Filter project">
+      {categories.map((category, index) => (
+        <button type="button" class:list={{ active: index === 0 }} data-filter={category}>{category}</button>
+      ))}
+    </div>
+
+    <div class="project-grid archive-grid" id="project-list">
+      {projects.map((project, index) => <ProjectCard project={project} index={index + 1} />)}
+    </div>
+    <p class="empty-state" hidden>Tidak ada project dalam kategori ini.</p>
+  </section>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    const cards = document.querySelectorAll<HTMLElement>('[data-category]');
+    const empty = document.querySelector<HTMLElement>('.empty-state');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        let visible = 0;
+
+        cards.forEach((card) => {
+          const matches = filter === 'Semua' || card.dataset.category === filter;
+          card.hidden = !matches;
+          if (matches) visible += 1;
+        });
+
+        if (empty) empty.hidden = visible > 0;
+      });
+    });
+  </script>
+</BaseLayout>
