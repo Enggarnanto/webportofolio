@@ -1,17 +1,21 @@
 ---
-title: "Visual Communication — Gereja"
-description: "Materi komunikasi visual untuk publikasi rangkaian kegiatan dan media sosial gereja."
+title: Visual Communication - Freelance
+description: Materi komunikasi visual untuk publikasi rangkaian kegiatan dan
+  media sosial gereja.
 date: 2025-07-01
-category: "Content Production"
-technologies: ["Graphic Design", "Layout Design", "Social Media Design"]
+category: Content Production
+technologies:
+  - Graphic Design
+  - Layout Design
+  - Social Media Design
 featured: false
-status: "Selesai"
-role: "Graphic Designer"
-accent: "violet"
-cover: "/images/projects/gereja/01.webp"
-galleryFolder: "/images/projects/gereja"
+status: Selesai
+role: Graphic Designer
+accent: violet
+cover: /images/projects/gereja/01.webp
+galleryFolder: /images/projects/gereja
 galleryCount: 3
-galleryAlt: "Materi komunikasi visual gereja"
+galleryAlt: Materi komunikasi visual gereja
 ---
 
 ## Fokus pekerjaan
