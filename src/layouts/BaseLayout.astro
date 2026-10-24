@@ -23,20 +23,19 @@ const isProjects = currentPath.includes('/projects');
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f1f0e8" />
+    <meta name="theme-color" content="#fffaf0" />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
     <title>{title}</title>
     <script is:inline>
       const savedTheme = localStorage.getItem('portfolio-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.dataset.theme = savedTheme || 'light';
     </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Lewati ke konten</a>
     <header class="site-header shell">
       <a class="brand" href={base} aria-label="Kembali ke beranda">
-        <span class="brand-mark">GE</span>
+        <span class="brand-mark" aria-hidden="true">✱</span>
         <span>Galih Enggarnanto</span>
       </a>
 
