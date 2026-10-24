@@ -1,7 +1,8 @@
 ---
 title: "Content Performance — Kubangan Kitchen"
 description: "Produksi konten video end-to-end untuk Instagram dan TikTok yang menghasilkan pertumbuhan jangkauan dan penayangan."
-date: 2024-06-01
+startDate: 2024-06-01
+endDate: 2024-07-31
 category: "Content Production"
 technologies: ["Instagram", "TikTok", "Video Production", "Content Strategy"]
 featured: true

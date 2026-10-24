@@ -1,7 +1,8 @@
 ---
 title: "Social Media Design — Kelana Sinema"
 description: "Desain konten Instagram bertema film, materi promosi JIFF, dan identitas pendukung publikasi Kelana Sinema."
-date: 2022-03-01
+startDate: 2022-03-01
+endDate: 2022-07-31
 category: "Social Media"
 technologies: ["Adobe Illustrator", "Adobe Photoshop", "Graphic Design", "Instagram"]
 featured: false

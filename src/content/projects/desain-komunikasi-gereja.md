@@ -2,7 +2,8 @@
 title: Visual Communication - Freelance
 description: Materi komunikasi visual untuk publikasi rangkaian kegiatan dan
   media sosial gereja.
-date: 2025-07-01
+startDate: 2025-07-01
+endDate: 2025-07-31
 category: Content Production
 technologies:
   - Graphic Design

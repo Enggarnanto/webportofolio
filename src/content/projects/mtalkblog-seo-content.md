@@ -1,7 +1,7 @@
 ---
 title: "SEO Content & Website — MTalkblog"
 description: "Pengelolaan blog seputar teknologi AI, tips, dan panduan praktis sebagai ruang belajar SEO writing dan website SEO."
-date: 2022-01-01
+startDate: 2022-01-01
 category: "Content Production"
 technologies: ["SEO Writing", "Website SEO", "Content Design", "Blogging"]
 featured: true

@@ -1,7 +1,8 @@
 ---
 title: "Short-form Gaming Content — UniPin"
 description: "Produksi video gaming berdurasi pendek untuk TikTok, Instagram Reels, dan YouTube Shorts."
-date: 2023-12-01
+startDate: 2023-12-01
+endDate: 2024-12-31
 category: "Video Content"
 technologies: ["Content Research", "Copywriting", "Video Editing", "Short-form Video"]
 featured: true

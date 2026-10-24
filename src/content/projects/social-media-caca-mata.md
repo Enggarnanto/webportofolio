@@ -1,7 +1,8 @@
 ---
 title: "Social Media Design — Caca Mata"
 description: "Seri desain promosi produk, informasi toko, dan kampanye giveaway dengan sistem visual yang konsisten untuk brand optik Caca Mata."
-date: 2026-02-01
+startDate: 2026-02-01
+endDate: 2026-02-28
 category: "Social Media"
 technologies: ["Graphic Design", "Social Media Design", "Content Design"]
 featured: true

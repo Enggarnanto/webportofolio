@@ -9,11 +9,13 @@ interface Props {
 
 const { project, index = 1, cover: coverOverride } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const { title, description, category, technologies, accent, date, cover } = project.data;
+const { title, description, category, technologies, accent, startDate, endDate, cover } = project.data;
 const selectedCover = coverOverride ?? cover;
 const coverUrl = selectedCover
   ? /^https?:\/\//.test(selectedCover) ? selectedCover : `${base}${selectedCover.replace(/^\//, '')}`
   : undefined;
+const monthYear = new Intl.DateTimeFormat('id-ID', { month: 'short', year: 'numeric' });
+const periodLabel = `${monthYear.format(startDate)} — ${endDate ? monthYear.format(endDate) : 'Sekarang'}`;
 ---
 
 <article class="project-card" data-category={category}>
@@ -34,7 +36,7 @@ const coverUrl = selectedCover
   <div class="project-info">
     <div class="project-meta">
       <span>{category}</span>
-      <time datetime={date.toISOString()}>{date.getFullYear()}</time>
+      <time datetime={startDate.toISOString()}>{periodLabel}</time>
     </div>
     <h3><a href={`${base}projects/${project.id}/`}>{title}</a></h3>
     <p>{description}</p>

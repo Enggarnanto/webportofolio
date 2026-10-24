@@ -1,7 +1,8 @@
 ---
 title: "Visual Identity & Content — JukeFolks"
 description: "Perancangan sistem visual awal, template kategori, Instagram Story, dan konten editorial untuk kanal musik JukeFolks."
-date: 2022-03-01
+startDate: 2022-03-01
+endDate: 2022-07-31
 category: "Social Media"
 technologies: ["Adobe Photoshop", "Graphic Design", "Instagram", "Content Design"]
 featured: false

@@ -34,7 +34,7 @@ collections:
     slug: "{{slug}}"
     preview_path: "projects/{{slug}}/"
     summary: "{{title}} — {{category}}"
-    sortable_fields: [date, title, category]
+    sortable_fields: [startDate, title, category]
     view_groups:
       - label: Kategori
         field: category
@@ -46,12 +46,20 @@ collections:
         name: description
         widget: text
         hint: Ringkasan yang tampil pada kartu project dan metadata halaman.
-      - label: Tanggal
-        name: date
+      - label: Waktu mulai
+        name: startDate
         widget: datetime
         date_format: YYYY-MM-DD
         time_format: false
         format: YYYY-MM-DD
+      - label: Waktu selesai
+        name: endDate
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        format: YYYY-MM-DD
+        required: false
+        hint: Kosongkan jika project masih berjalan.
       - label: Kategori
         name: category
         widget: select

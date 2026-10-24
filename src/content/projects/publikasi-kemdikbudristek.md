@@ -1,7 +1,8 @@
 ---
 title: "Media & Publication — Kemdikbudristek"
 description: "Pengembangan konten mingguan, penulisan berita dan siaran pers, serta monitoring pemberitaan untuk komunikasi lembaga."
-date: 2022-01-01
+startDate: 2022-01-01
+endDate: 2022-03-31
 category: "Public Relations"
 technologies: ["Content Writing", "Press Release", "Instagram", "Brand24"]
 featured: false

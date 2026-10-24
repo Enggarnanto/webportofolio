@@ -1,7 +1,8 @@
 ---
 title: "Graphic Design Exploration — Commadesign"
 description: "Eksplorasi komposisi, warna, ilustrasi, manipulasi foto, dan desain majalah bersama komunitas kreatif Commadesign."
-date: 2021-04-01
+startDate: 2021-04-01
+endDate: 2021-06-30
 category: "Content Production"
 technologies: ["Adobe Photoshop", "Graphic Design", "Illustration", "Content Writing"]
 featured: false

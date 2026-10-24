@@ -13,9 +13,10 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, description, category, technologies, status, role, date, accent, cover, gallery, galleryFolder, galleryCount, galleryAlt, videos, demo, github } = project.data;
+const { title, description, category, technologies, status, role, startDate, endDate, accent, cover, gallery, galleryFolder, galleryCount, galleryAlt, videos, demo, github } = project.data;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const assetUrl = (path: string) => /^https?:\/\//.test(path) ? path : `${base}${path.replace(/^\//, '')}`;
+const monthYear = new Intl.DateTimeFormat('id-ID', { month: 'long', year: 'numeric' });
 const generatedGallery = galleryFolder
   ? Array.from({ length: galleryCount }, (_, index) => ({
       image: `${galleryFolder.replace(/\/$/, '')}/${String(index + 1).padStart(2, '0')}.webp`,
@@ -35,11 +36,13 @@ const coverUrl = cover
     <div class="detail-layout">
       <div class="detail-copy">
         <header class="detail-header">
-          <p class="kicker">{category} / {date.getFullYear()}</p>
+          <p class="kicker">{category} / {startDate.getFullYear()}</p>
           <h1>{title}</h1>
           <p class="detail-intro">{description}</p>
           <dl class="project-facts">
             <div><dt>Status</dt><dd>{status}</dd></div>
+            <div><dt>Mulai</dt><dd>{monthYear.format(startDate)}</dd></div>
+            <div><dt>Selesai</dt><dd>{endDate ? monthYear.format(endDate) : 'Sekarang'}</dd></div>
             <div><dt>Peran</dt><dd>{role}</dd></div>
             <div><dt>Keahlian</dt><dd>{technologies.join(', ')}</dd></div>
           </dl>
