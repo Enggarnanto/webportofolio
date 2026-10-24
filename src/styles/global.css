@@ -952,3 +952,14 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
   .detail-media .detail-visual { min-height: 260px; }
   .detail-media .project-gallery { margin-top: 14px; }
 }
+
+@media (max-width: 600px) {
+  .detail-media .project-gallery .gallery-grid { column-count: 1; }
+  .detail-media .project-gallery .gallery-grid figure,
+  .detail-media .project-gallery .gallery-grid figure.wide { margin-bottom: 14px; }
+  .detail-media .project-gallery .gallery-grid figcaption {
+    padding: 9px 2px 2px;
+    font-size: .72rem;
+    line-height: 1.45;
+  }
+}
