@@ -339,7 +339,7 @@ button { font: inherit; }
   --sans: 'Manrope', sans-serif;
 }
 
-body { overflow-x: hidden; }
+html, body { max-width: 100%; overflow-x: hidden; }
 .shell { width: min(1240px, calc(100% - 56px)); }
 
 .site-header {
