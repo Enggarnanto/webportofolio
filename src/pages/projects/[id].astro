@@ -13,7 +13,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, description, category, technologies, status, role, startDate, endDate, accent, cover, gallery, galleryFolder, galleryCount, galleryAlt, videos, demo, github } = project.data;
+const { title, description, category, technologies, status, role, startDate, endDate, accent, cover, gallery, galleryFolder, galleryCount, galleryAlt, videos, ads, demo, github } = project.data;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 const assetUrl = (path: string) => /^https?:\/\//.test(path) ? path : `${base}${path.replace(/^\//, '')}`;
 const monthYear = new Intl.DateTimeFormat('id-ID', { month: 'long', year: 'numeric' });
@@ -72,7 +72,11 @@ const coverUrl = cover
         </div>
 
         {completeGallery.length > 0 && (
-          <section class="project-gallery" aria-label={`Galeri karya ${title}`}>
+          <section class="project-gallery" aria-labelledby="photo-title">
+            <header class="detail-media-heading">
+              <p class="kicker">Foto</p>
+              <h2 id="photo-title">Dokumentasi <em>fotonya.</em></h2>
+            </header>
             <div class="gallery-grid">
               {completeGallery.map((item, index) => (
                 <figure class:list={{ wide: index % 5 === 0 }}>
@@ -100,6 +104,36 @@ const coverUrl = cover
               </video>
               <figcaption>{item.title}</figcaption>
             </figure>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {ads.length > 0 && (
+      <section class="project-ads" aria-labelledby="ads-title">
+        <header>
+          <p class="kicker">Iklan</p>
+          <h2 id="ads-title">Materi <em>iklannya.</em></h2>
+        </header>
+        <div class="ads-grid">
+          {ads.map((item) => (
+            <article class="ad-card">
+              {item.url ? (
+                <a class="ad-visual" href={item.url} target="_blank" rel="noreferrer">
+                  <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
+                </a>
+              ) : (
+                <div class="ad-visual">
+                  <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
+                </div>
+              )}
+              <div class="ad-copy">
+                {item.platform && <p>{item.platform}</p>}
+                <h3>{item.title}</h3>
+                {item.caption && <span>{item.caption}</span>}
+                {item.url && <a href={item.url} target="_blank" rel="noreferrer">Lihat iklan ↗</a>}
+              </div>
+            </article>
           ))}
         </div>
       </section>

@@ -120,6 +120,20 @@ collections:
           - { label: Video MP4, name: video, widget: file }
           - { label: Poster, name: poster, widget: image, required: false }
           - { label: Judul, name: title, widget: string }
+      - label: Materi iklan
+        name: ads
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.title}} — {{fields.platform}}"
+        hint: Bagian iklan hanya tampil di halaman project jika daftar ini diisi.
+        fields:
+          - { label: Gambar iklan, name: image, widget: image }
+          - { label: Teks alternatif, name: alt, widget: string }
+          - { label: Judul iklan, name: title, widget: string }
+          - { label: Platform, name: platform, widget: string, required: false, hint: Contoh Meta Ads atau Google Ads. }
+          - { label: Keterangan atau hasil, name: caption, widget: text, required: false }
+          - { label: URL iklan, name: url, widget: string, required: false }
       - label: Folder galeri teroptimasi
         name: galleryFolder
         widget: string

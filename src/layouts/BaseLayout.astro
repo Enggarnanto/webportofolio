@@ -22,6 +22,8 @@ const isProjects = currentPath.includes('/projects');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#fffaf0" />
     <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
@@ -57,7 +59,7 @@ const isProjects = currentPath.includes('/projects');
     <footer class="site-footer shell">
       <p>Strategi, cerita, dan visual dalam satu ruang.</p>
       <div class="footer-links">
-        <a href="https://profile.mtalkblog.com" target="_blank" rel="noreferrer">Website ↗</a>
+        <a href="https://mtalkblog.com" target="_blank" rel="noreferrer">Website ↗</a>
         <a href="https://www.linkedin.com/in/galih-enggarnanto/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </div>
       <p class="copyright">© {new Date().getFullYear()} Galih Enggarnanto</p>
