@@ -5,9 +5,23 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PlatformIcon from '../components/PlatformIcon.astro';
 
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const projects = (await getCollection('projects'))
-  .filter(({ data }) => data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const projectEntries = await getCollection('projects');
+const projectById = new Map(projectEntries.map((project) => [project.id, project]));
+const homeFeed = [
+  { id: 'strategi-konten-latis', cover: 'images/projects/latiseducation/14.webp' },
+  { id: 'mtalkblog-seo-content', cover: 'images/projects/mtalk-whatsapp.webp' },
+  { id: 'konten-kubangan-kitchen', cover: 'images/projects/kubangan-cover2.webp' },
+  { id: 'video-pendek-unipin', cover: 'images/projects/unipincove2.png' },
+  { id: 'desain-jukefolks', cover: 'images/projects/jukefolks/07.webp' },
+  { id: 'desain-kelana-sinema', cover: 'images/projects/kelana-sinema/04.webp' },
+  { id: 'publikasi-kemdikbudristek', cover: 'images/projects/kemdikbudristek/01.webp' },
+  { id: 'eksplorasi-commadesign', cover: 'images/projects/commadesign/32.webp' },
+  { id: 'desain-komunikasi-gereja', cover: 'images/projects/gereja/03.webp' },
+] as const;
+const projects = homeFeed.flatMap((item) => {
+  const project = projectById.get(item.id);
+  return project ? [{ project, cover: item.cover }] : [];
+});
 ---
 
 <BaseLayout>
@@ -90,7 +104,7 @@ const projects = (await getCollection('projects'))
       </header>
 
       <div class="project-grid">
-        {projects.map((project, index) => <ProjectCard project={project} index={index + 1} />)}
+        {projects.map(({ project, cover }, index) => <ProjectCard project={project} cover={cover} index={index + 1} />)}
       </div>
 
       <div class="section-action">
