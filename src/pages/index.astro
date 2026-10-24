@@ -5,28 +5,9 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PlatformIcon from '../components/PlatformIcon.astro';
 
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const allProjects = (await getCollection('projects')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
-const projects = allProjects
+const projects = (await getCollection('projects'))
   .filter(({ data }) => data.featured)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const projectImages = allProjects.flatMap((project) => {
-  const galleryImages = project.data.galleryFolder
-    ? Array.from({ length: project.data.galleryCount }, (_, index) => ({
-        image: `${project.data.galleryFolder!.replace(/\/$/, '')}/${String(index + 1).padStart(2, '0')}.webp`,
-        alt: `${project.data.galleryAlt ?? project.data.title} ${index + 1}`,
-      }))
-    : project.data.gallery;
-  const images = [
-    ...(project.data.cover ? [{ image: project.data.cover, alt: `Sampul ${project.data.title}` }] : []),
-    ...project.data.videos.flatMap((item) => item.poster ? [{ image: item.poster, alt: `Preview video ${item.title}` }] : []),
-    ...galleryImages,
-  ];
-  const uniqueImages = [...new Map(images.map((item) => [item.image, item])).values()];
-
-  return uniqueImages.map((item) => ({ ...item, projectId: project.id, projectTitle: project.data.title }));
-});
 ---
 
 <BaseLayout>
