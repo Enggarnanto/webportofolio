@@ -883,3 +883,72 @@ body > .site-footer { width: 100%; max-width: none; padding-inline: max(28px, ca
   .project-gallery .gallery-grid img,
   .project-gallery .gallery-grid .wide img { border-radius: 6px; }
 }
+
+/* Editorial project detail: copy on the left, visual archive on the right */
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(460px, .95fr);
+  gap: clamp(48px, 6vw, 88px);
+  align-items: start;
+}
+.detail-copy, .detail-media { min-width: 0; }
+.detail-layout .detail-header { display: block; }
+.detail-layout .detail-header h1 {
+  margin-top: 24px;
+  font-size: clamp(3.6rem, 6vw, 6.7rem);
+}
+.detail-layout .detail-intro {
+  max-width: 620px;
+  margin-top: 30px;
+  font-size: .95rem;
+}
+.detail-layout .project-facts { max-width: 520px; margin-top: 42px; }
+.detail-layout .project-facts div { grid-template-columns: 105px 1fr; }
+.detail-layout .detail-body {
+  display: block;
+  margin-top: 70px;
+}
+.detail-layout .prose { max-width: 650px; }
+.detail-layout .detail-links {
+  margin-top: 55px;
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+}
+.detail-media .detail-visual {
+  height: auto;
+  min-height: 320px;
+  margin-top: 0;
+  border-width: 3px;
+  border-radius: 16px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.detail-media .detail-visual:has(.detail-cover) { min-height: 0; }
+.detail-media .detail-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: initial;
+  background: transparent;
+}
+.detail-media .project-gallery { margin-top: 18px; }
+.detail-media .project-gallery .gallery-grid { column-count: 3; }
+.detail-media .gallery-more { margin-top: 12px; }
+.detail-media .gallery-more summary {
+  padding: 13px 17px;
+  font-size: .68rem;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+@media (max-width: 980px) {
+  .detail-layout { grid-template-columns: minmax(0, 1fr) minmax(390px, .9fr); gap: 40px; }
+  .detail-layout .detail-header h1 { font-size: clamp(3.2rem, 6.5vw, 5.3rem); }
+  .detail-media .project-gallery .gallery-grid { column-count: 2; }
+}
+
+@media (max-width: 800px) {
+  .detail-layout { grid-template-columns: 1fr; gap: 65px; }
+  .detail-layout .detail-body { margin-top: 55px; }
+  .detail-layout .detail-links { margin-top: 42px; }
+  .detail-media .detail-visual { min-height: 260px; }
+  .detail-media .project-gallery { margin-top: 14px; }
+}

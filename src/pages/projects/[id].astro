@@ -24,8 +24,8 @@ const generatedGallery = galleryFolder
     }))
   : [];
 const completeGallery = generatedGallery.length > 0 ? generatedGallery : gallery;
-const visibleGallery = completeGallery.slice(0, 8);
-const remainingGallery = completeGallery.slice(8);
+const visibleGallery = completeGallery.slice(0, 12);
+const remainingGallery = completeGallery.slice(12);
 const coverUrl = cover
   ? assetUrl(cover)
   : undefined;
@@ -34,69 +34,69 @@ const coverUrl = cover
 <BaseLayout title={`${title} — Galih Enggarnanto`} description={description}>
   <article class="project-detail shell">
     <a class="back-link" href={`${base}projects/`}>← Balik ke semua project</a>
-    <header class="detail-header">
-      <div>
-        <p class="kicker">{category} / {date.getFullYear()}</p>
-        <h1>{title}</h1>
-        <p class="detail-intro">{description}</p>
-      </div>
-      <dl class="project-facts">
-        <div><dt>Status</dt><dd>{status}</dd></div>
-        <div><dt>Peran</dt><dd>{role}</dd></div>
-        <div><dt>Keahlian</dt><dd>{technologies.join(', ')}</dd></div>
-      </dl>
-    </header>
-
-    <div class={`detail-visual accent-${accent}`}>
-      {coverUrl ? (
-        <img class="detail-cover" src={coverUrl} alt={`Tampilan project ${title}`} />
-      ) : (
-        <div aria-hidden="true">
-          <span class="detail-shape one"></span><span class="detail-shape two"></span>
-          <div class="detail-browser"><i></i><i></i><i></i><b></b></div>
-        </div>
-      )}
-    </div>
-
-    <div class="detail-body">
-      <aside class="detail-links">
-        <span>Kontribusi</span>
-        <p>{role}</p>
-        {demo && <a href={demo} target="_blank" rel="noreferrer">Live demo ↗</a>}
-        {github && <a href={github} target="_blank" rel="noreferrer">Source code ↗</a>}
-      </aside>
-      <div class="prose"><Content /></div>
-    </div>
-
-    {completeGallery.length > 0 && (
-      <section class="project-gallery" aria-labelledby="gallery-title">
-        <header>
-          <p class="kicker">Galeri</p>
-          <h2 id="gallery-title">Lihat semua<br /><em>hasilnya.</em></h2>
+    <div class="detail-layout">
+      <div class="detail-copy">
+        <header class="detail-header">
+          <p class="kicker">{category} / {date.getFullYear()}</p>
+          <h1>{title}</h1>
+          <p class="detail-intro">{description}</p>
+          <dl class="project-facts">
+            <div><dt>Status</dt><dd>{status}</dd></div>
+            <div><dt>Peran</dt><dd>{role}</dd></div>
+            <div><dt>Keahlian</dt><dd>{technologies.join(', ')}</dd></div>
+          </dl>
         </header>
-        <div class="gallery-grid">
-          {visibleGallery.map((item, index) => (
-            <figure class:list={{ wide: index % 5 === 0 }}>
-              <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
-              {item.caption && <figcaption>{item.caption}</figcaption>}
-            </figure>
-          ))}
+
+        <div class="detail-body">
+          <div class="prose"><Content /></div>
+          <aside class="detail-links">
+            <span>Kontribusi</span>
+            <p>{role}</p>
+            {demo && <a href={demo} target="_blank" rel="noreferrer">Live demo ↗</a>}
+            {github && <a href={github} target="_blank" rel="noreferrer">Source code ↗</a>}
+          </aside>
         </div>
-        {remainingGallery.length > 0 && (
-          <details class="gallery-more">
-            <summary>Tampilkan semua {completeGallery.length} karya <span>↓</span></summary>
+      </div>
+
+      <div class="detail-media">
+        <div class={`detail-visual accent-${accent}`}>
+          {coverUrl ? (
+            <img class="detail-cover" src={coverUrl} alt={`Tampilan project ${title}`} />
+          ) : (
+            <div aria-hidden="true">
+              <span class="detail-shape one"></span><span class="detail-shape two"></span>
+              <div class="detail-browser"><i></i><i></i><i></i><b></b></div>
+            </div>
+          )}
+        </div>
+
+        {completeGallery.length > 0 && (
+          <section class="project-gallery" aria-label={`Galeri karya ${title}`}>
             <div class="gallery-grid">
-              {remainingGallery.map((item, index) => (
+              {visibleGallery.map((item, index) => (
                 <figure class:list={{ wide: index % 5 === 0 }}>
                   <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
                   {item.caption && <figcaption>{item.caption}</figcaption>}
                 </figure>
               ))}
             </div>
-          </details>
+            {remainingGallery.length > 0 && (
+              <details class="gallery-more">
+                <summary>Tampilkan semua {completeGallery.length} karya <span>↓</span></summary>
+                <div class="gallery-grid">
+                  {remainingGallery.map((item, index) => (
+                    <figure class:list={{ wide: index % 5 === 0 }}>
+                      <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
+                      {item.caption && <figcaption>{item.caption}</figcaption>}
+                    </figure>
+                  ))}
+                </div>
+              </details>
+            )}
+          </section>
         )}
-      </section>
-    )}
+      </div>
+    </div>
 
     {videos.length > 0 && (
       <section class="project-videos" aria-labelledby="video-title">
