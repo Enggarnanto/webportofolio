@@ -2,11 +2,31 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import PlatformIcon from '../components/PlatformIcon.astro';
 
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const projects = (await getCollection('projects'))
+const allProjects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const projects = allProjects
   .filter(({ data }) => data.featured)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const projectImages = allProjects.flatMap((project) => {
+  const galleryImages = project.data.galleryFolder
+    ? Array.from({ length: project.data.galleryCount }, (_, index) => ({
+        image: `${project.data.galleryFolder!.replace(/\/$/, '')}/${String(index + 1).padStart(2, '0')}.webp`,
+        alt: `${project.data.galleryAlt ?? project.data.title} ${index + 1}`,
+      }))
+    : project.data.gallery;
+  const images = [
+    ...(project.data.cover ? [{ image: project.data.cover, alt: `Sampul ${project.data.title}` }] : []),
+    ...project.data.videos.flatMap((item) => item.poster ? [{ image: item.poster, alt: `Preview video ${item.title}` }] : []),
+    ...galleryImages,
+  ];
+  const uniqueImages = [...new Map(images.map((item) => [item.image, item])).values()];
+
+  return uniqueImages.map((item) => ({ ...item, projectId: project.id, projectTitle: project.data.title }));
+});
 ---
 
 <BaseLayout>
@@ -23,8 +43,18 @@ const projects = (await getCollection('projects'))
           Galih.
         </h1>
         <div class="hero-bottom">
-          <p>Saya Galih Enggarnanto. Saya menggabungkan strategi, storytelling, dan kreativitas visual untuk menghasilkan konten yang relevan bagi audiens serta mendukung pertumbuhan brand.</p>
+          <p>Saya bantu brand bikin konten yang menarik, rapi, dan punya tujuan.</p>
           <a class="circle-link" href="#projects" aria-label="Lihat karya pilihan">↓</a>
+        </div>
+        <div class="hero-skills" aria-label="Keahlian utama">
+          <span>Social Media</span><span>Content Strategy</span><span>Copywriting</span><span>Video Editing</span><span>Meta Ads</span><span>Google Ads</span>
+        </div>
+        <div class="platform-list" aria-label="Platform yang dikuasai">
+          <span><PlatformIcon name="instagram" />Instagram</span>
+          <span><PlatformIcon name="tiktok" />TikTok</span>
+          <span><PlatformIcon name="youtube" />YouTube</span>
+          <span><PlatformIcon name="meta" />Meta Ads</span>
+          <span><PlatformIcon name="google" />Google Ads</span>
         </div>
       </div>
       <figure class="hero-portrait">
@@ -37,6 +67,34 @@ const projects = (await getCollection('projects'))
     <p class="hero-location"><span>◎</span> Depok, Jawa Barat · Bekerja secara digital</p>
   </section>
 
+  <section class="service-invite">
+    <div class="shell service-invite-inner">
+      <div>
+        <p class="kicker">Lagi mau tumbuhin brand?</p>
+        <h2>Aku bisa bantu.</h2>
+      </div>
+      <div class="service-pills">
+        <a href="#contact"><PlatformIcon name="meta" /><span><b>Meta Ads</b><small>Iklan Facebook & Instagram</small></span></a>
+        <a href="#contact"><PlatformIcon name="google" /><span><b>Google Ads</b><small>Campaign berbasis pencarian</small></span></a>
+        <a href="#contact"><span class="seo-icon">SEO</span><span><b>SEO Content Placement</b><small>Artikel dan publikasi digital</small></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mini-gallery" aria-labelledby="mini-gallery-title">
+    <div class="shell mini-gallery-head">
+      <div><p class="kicker">Cuplikan karya</p><h2 id="mini-gallery-title">Lihat-lihat dulu.</h2></div>
+      <p>{projectImages.length} gambar dari semua project → geser untuk melihat</p>
+    </div>
+    <div class="mini-gallery-track">
+      {projectImages.map((item) => (
+        <a href={`${base}projects/${item.projectId}/`} title={item.projectTitle}>
+          <img src={`${base}${item.image.replace(/^\//, '')}`} alt={item.alt} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </section>
+
   <section class="marquee" aria-label="Keahlian utama">
     <div>
       <span>CONTENT STRATEGY</span><b>✦</b><span>STORYTELLING</span><b>✦</b><span>VIDEO PRODUCTION</span><b>✦</b><span>VISUAL DESIGN</span><b>✦</b>
@@ -46,8 +104,8 @@ const projects = (await getCollection('projects'))
 
   <section class="impact-section shell" aria-labelledby="impact-title">
     <div class="impact-intro">
-      <p class="kicker">Dampak konten di Latis</p>
-      <h2 id="impact-title">Kreativitas yang<br /><em>terukur.</em></h2>
+      <p class="kicker">Hasilnya</p>
+      <h2 id="impact-title">Angka yang<br /><em>bikin senang.</em></h2>
     </div>
     <div class="impact-grid">
       <article><strong>+250%</strong><span>Jangkauan Instagram</span></article>
@@ -60,8 +118,8 @@ const projects = (await getCollection('projects'))
   <section id="projects" class="project-showcase section">
     <div class="shell">
       <header class="section-heading">
-        <div><span class="section-index">01</span><p>Karya pilihan</p></div>
-        <h2>Selected <em>work.</em></h2>
+        <div><span class="section-index">01</span><p>Project</p></div>
+        <h2>Karya <em>terbaru.</em></h2>
       </header>
 
       <div class="project-grid">
@@ -78,28 +136,28 @@ const projects = (await getCollection('projects'))
     <div class="shell">
       <header class="section-heading">
         <div><span class="section-index">02</span><p>Pengalaman</p></div>
-        <h2>Perjalanan mengolah<br /><em>cerita dan audiens.</em></h2>
+        <h2>Tempat aku<br /><em>pernah berkarya.</em></h2>
       </header>
       <div class="experience-list">
         <article>
           <time>08/2024 — Sekarang</time>
           <div><p>PT Latis Teknologi Indonesia</p><h3>Social Media Officer</h3></div>
-          <p>Mengembangkan strategi konten feeds dan reels, mendokumentasikan Supercamp, serta memproduksi aset visual untuk komunikasi dan pemasaran digital.</p>
+          <p>Strategi konten, feeds, reels, dokumentasi, dan aset pemasaran digital.</p>
         </article>
         <article>
           <time>06/2024 — 07/2024</time>
           <div><p>Kubangan Kitchen</p><h3>Digital Marketing Intern</h3></div>
-          <p>Merancang strategi Instagram dan TikTok serta mengelola produksi video end-to-end hingga menjangkau 55.973 pengguna dan menghasilkan 50.941 penayangan.</p>
+          <p>Strategi Instagram–TikTok dan produksi video dari ide sampai tayang.</p>
         </article>
         <article>
           <time>12/2023 — 12/2024</time>
           <div><p>UniPin</p><h3>Social Media Video Editor Intern</h3></div>
-          <p>Memproduksi video pendek bertema gaming untuk TikTok, Reels, dan Shorts dari tahap riset, penulisan naskah, hingga penyuntingan.</p>
+          <p>Video gaming untuk TikTok, Reels, dan Shorts.</p>
         </article>
         <article>
           <time>01/2022 — 03/2022</time>
           <div><p>Kemdikbudristek</p><h3>Humas & Publikasi Media Intern</h3></div>
-          <p>Mengembangkan konten Instagram, menyusun draft berita dan siaran pers, serta memonitor pemberitaan menggunakan Brand24.</p>
+          <p>Konten Instagram, berita, siaran pers, dan media monitoring.</p>
         </article>
       </div>
     </div>
@@ -107,11 +165,11 @@ const projects = (await getCollection('projects'))
 
   <section id="about" class="about-section">
     <div class="shell about-grid">
-      <div class="about-label"><span class="section-index">03</span><p>Tentang saya</p></div>
+      <div class="about-label"><span class="section-index">03</span><p>Tentang aku</p></div>
       <div class="about-copy">
-        <p class="lead">Konten yang baik lahir dari pertemuan antara <mark>data, cerita, dan visual</mark> yang memahami audiensnya.</p>
+        <p class="lead">Aku suka bikin <mark>konten yang jelas, menarik, dan berguna.</mark></p>
         <div class="about-columns">
-          <p>Berpengalaman mengembangkan ide, menyusun strategi, dan memproduksi konten kreatif untuk berbagai platform digital. Data performa digunakan untuk mengevaluasi efektivitas konten dan menentukan pendekatan kreatif berikutnya.</p>
+          <p>Terbiasa mengembangkan ide, menyusun strategi, dan memproduksi konten untuk berbagai platform digital.</p>
           <p>Lulusan S1 Ilmu Komunikasi Universitas Gunadarma dengan IPK 3,65. Memiliki latar pendidikan Teknik Komputer dan Jaringan dari SMKN 1 Kusan Hilir, Kalimantan Selatan.</p>
         </div>
         <dl class="profile-facts">
@@ -133,8 +191,8 @@ const projects = (await getCollection('projects'))
   <section class="services section">
     <div class="shell">
       <header class="section-heading compact">
-        <div><span class="section-index">04</span><p>Yang saya kerjakan</p></div>
-        <h2>What I <em>do.</em></h2>
+        <div><span class="section-index">04</span><p>Layanan</p></div>
+        <h2>Bisa bantu <em>apa?</em></h2>
       </header>
       <div class="service-list">
         <article><span aria-hidden="true">✦</span><h3>Content Strategy</h3><p>Ideasi, riset audiens, evaluasi performa, dan storytelling.</p><b>↗</b></article>
@@ -158,8 +216,8 @@ const projects = (await getCollection('projects'))
 
   <section id="contact" class="contact-section">
     <div class="shell contact-inner">
-      <p>Kolaborasi dan kesempatan baru</p>
-      <h2>Mari membuat konten<br /><em>yang berarti.</em></h2>
+      <p>Punya project atau campaign?</p>
+      <h2>Ngobrol<br /><em>yuk.</em></h2>
       <a class="contact-link" href="mailto:galihenggarnt@gmail.com">galihenggarnt@gmail.com <span>↗</span></a>
       <div class="contact-methods">
         <a href="tel:+6282149408905"><small>Telepon</small><span>0821 4940 8905</span></a>

@@ -33,7 +33,7 @@ const coverUrl = cover
 
 <BaseLayout title={`${title} — Galih Enggarnanto`} description={description}>
   <article class="project-detail shell">
-    <a class="back-link" href={`${base}projects/`}>← Kembali ke semua project</a>
+    <a class="back-link" href={`${base}projects/`}>← Balik ke semua project</a>
     <header class="detail-header">
       <div>
         <p class="kicker">{category} / {date.getFullYear()}</p>
@@ -71,8 +71,8 @@ const coverUrl = cover
     {completeGallery.length > 0 && (
       <section class="project-gallery" aria-labelledby="gallery-title">
         <header>
-          <p class="kicker">Dokumentasi karya</p>
-          <h2 id="gallery-title">Arsip karya<br /><em>lengkap.</em></h2>
+          <p class="kicker">Galeri</p>
+          <h2 id="gallery-title">Lihat semua<br /><em>hasilnya.</em></h2>
         </header>
         <div class="gallery-grid">
           {visibleGallery.map((item, index) => (
@@ -101,8 +101,8 @@ const coverUrl = cover
     {videos.length > 0 && (
       <section class="project-videos" aria-labelledby="video-title">
         <header>
-          <p class="kicker">Showreel</p>
-          <h2 id="video-title">Konten video<br /><em>terpilih.</em></h2>
+          <p class="kicker">Video</p>
+          <h2 id="video-title">Tonton<br /><em>videonya.</em></h2>
         </header>
         <div class="video-grid">
           {videos.map((item) => (
