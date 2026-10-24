@@ -81,20 +81,6 @@ const projectImages = allProjects.flatMap((project) => {
     </div>
   </section>
 
-  <section class="mini-gallery" aria-labelledby="mini-gallery-title">
-    <div class="shell mini-gallery-head">
-      <div><p class="kicker">Cuplikan karya</p><h2 id="mini-gallery-title">Lihat-lihat dulu.</h2></div>
-      <p>{projectImages.length} gambar dari semua project → geser untuk melihat</p>
-    </div>
-    <div class="mini-gallery-track">
-      {projectImages.map((item) => (
-        <a href={`${base}projects/${item.projectId}/`} title={item.projectTitle}>
-          <img src={`${base}${item.image.replace(/^\//, '')}`} alt={item.alt} loading="lazy" />
-        </a>
-      ))}
-    </div>
-  </section>
-
   <section class="marquee" aria-label="Keahlian utama">
     <div>
       <span>CONTENT STRATEGY</span><b>✦</b><span>STORYTELLING</span><b>✦</b><span>VIDEO PRODUCTION</span><b>✦</b><span>VISUAL DESIGN</span><b>✦</b>
