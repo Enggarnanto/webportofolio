@@ -1,0 +1,101 @@
+backend:
+  name: turbo-github
+  turbo_site_id: REPLACE_WITH_DECAP_TURBO_SITE_ID
+  branch: main
+
+site_url: https://enggarnanto.github.io/webportofolio/
+display_url: https://enggarnanto.github.io/webportofolio/
+logo:
+  src: https://enggarnanto.github.io/webportofolio/favicon.svg
+  show_in_header: true
+
+locale: id
+publish_mode: simple
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: projects
+    label: Project
+    label_singular: Project
+    description: Tambah dan kelola project yang tampil pada portofolio.
+    folder: src/content/projects
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    preview_path: "projects/{{slug}}/"
+    summary: "{{title}} — {{category}}"
+    sortable_fields: [date, title, category]
+    view_groups:
+      - label: Kategori
+        field: category
+    fields:
+      - label: Judul
+        name: title
+        widget: string
+      - label: Deskripsi singkat
+        name: description
+        widget: text
+        hint: Ringkasan yang tampil pada kartu project dan metadata halaman.
+      - label: Tanggal
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        format: YYYY-MM-DD
+      - label: Kategori
+        name: category
+        widget: select
+        options: [Website, Web App, Creative Dev, UI/UX, Lainnya]
+      - label: Teknologi
+        name: technologies
+        widget: list
+        allow_add: true
+        collapsed: false
+        field:
+          label: Teknologi
+          name: technology
+          widget: string
+      - label: Tampilkan di beranda
+        name: featured
+        widget: boolean
+        default: false
+      - label: Status
+        name: status
+        widget: select
+        options: [Konsep, Dalam pengerjaan, Selesai]
+        default: Selesai
+      - label: Warna aksen
+        name: accent
+        widget: select
+        options:
+          - { label: Lime, value: lime }
+          - { label: Oranye, value: orange }
+          - { label: Violet, value: violet }
+          - { label: Biru, value: blue }
+        default: lime
+      - label: Gambar sampul
+        name: cover
+        widget: image
+        required: false
+        hint: Disarankan rasio 4:3 dengan format WebP atau JPEG.
+      - label: URL demo
+        name: demo
+        widget: string
+        required: false
+      - label: URL GitHub
+        name: github
+        widget: string
+        required: false
+      - label: Isi project
+        name: body
+        widget: markdown

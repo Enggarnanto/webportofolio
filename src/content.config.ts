@@ -13,6 +13,7 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     status: z.string().default('Selesai'),
     accent: z.enum(['lime', 'orange', 'violet', 'blue']).default('lime'),
+    cover: z.string().optional(),
     demo: z.url().optional(),
     github: z.url().optional(),
   }),

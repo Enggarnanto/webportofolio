@@ -47,4 +47,18 @@ Untuk custom domain, set environment variable `SITE_URL` atau ganti nilai `site`
 
 ## Decap CMS
 
-Konten sudah disusun agar mudah dihubungkan ke Decap CMS. Integrasi admin sengaja belum diaktifkan karena backend GitHub memerlukan nama repository dan konfigurasi autentikasi OAuth.
+Antarmuka CMS tersedia di `/admin/`. Konfigurasi koleksi project berada di `public/admin/config.yml` dan menggunakan Decap Turbo agar autentikasi GitHub dapat berjalan tanpa server OAuth sendiri.
+
+Sebelum login pertama:
+
+1. Buat akun gratis di [Decap Turbo](https://turbo.decapcms.org/signup).
+2. Hubungkan GitHub dan batasi akses GitHub App ke repository `Enggarnanto/webportofolio`.
+3. Buat site dengan pengaturan berikut:
+   - Repo: `Enggarnanto/webportofolio`
+   - Branch: `main`
+   - Config path: `public/admin/config.yml`
+   - Admin URL: `https://enggarnanto.github.io/webportofolio/admin/`
+4. Salin Site ID dari halaman Overview.
+5. Ganti `REPLACE_WITH_DECAP_TURBO_SITE_ID` di `public/admin/config.yml` dengan Site ID tersebut.
+
+Setiap penyimpanan dari CMS akan membuat commit ke branch `main` dan memicu deploy GitHub Pages.

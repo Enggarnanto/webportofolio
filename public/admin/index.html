@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <title>Content Manager — Galih Enggar Nanto</title>
+    <style>
+      :root { color-scheme: light; font-family: Inter, system-ui, sans-serif; background: #f1f0e8; color: #151713; }
+      body { margin: 0; }
+      .setup { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+      .setup-card { width: min(620px, 100%); border: 1px solid #c9c8bc; background: #fff; padding: clamp(28px, 6vw, 56px); box-sizing: border-box; }
+      .mark { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: #151713; color: #dfff45; font-weight: 700; font-size: 12px; }
+      h1 { margin: 30px 0 12px; font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1; letter-spacing: -.05em; }
+      p { color: #62645d; line-height: 1.65; }
+      ol { padding-left: 20px; line-height: 1.8; }
+      a { color: inherit; font-weight: 700; text-underline-offset: 3px; }
+      code { background: #ecebe3; padding: 3px 6px; font-size: .86em; }
+    </style>
+  </head>
+  <body>
+    <div class="setup" id="setup" hidden>
+      <main class="setup-card">
+        <span class="mark">GE</span>
+        <h1>CMS hampir siap.</h1>
+        <p>Antarmuka dan koleksi project sudah terpasang. Selesaikan koneksi Decap Turbo untuk mengaktifkan login dan penyimpanan ke GitHub.</p>
+        <ol>
+          <li>Daftar gratis di <a href="https://turbo.decapcms.org/signup">Decap Turbo</a>.</li>
+          <li>Hubungkan repository <code>Enggarnanto/webportofolio</code>.</li>
+          <li>Buat site dan salin <strong>Site ID</strong>.</li>
+          <li>Ganti nilai <code>REPLACE_WITH_DECAP_TURBO_SITE_ID</code> pada <code>public/admin/config.yml</code>.</li>
+        </ol>
+      </main>
+    </div>
+
+    <script>
+      fetch('./config.yml')
+        .then((response) => response.text())
+        .then((config) => {
+          if (config.includes('REPLACE_WITH_DECAP_TURBO_SITE_ID')) {
+            document.querySelector('#setup').hidden = false;
+            return;
+          }
+
+          const cms = document.createElement('script');
+          cms.src = 'https://cdn.jsdelivr.net/npm/decap-cms@3.17.1/dist/decap-cms.js';
+          document.body.appendChild(cms);
+        })
+        .catch(() => {
+          document.querySelector('#setup').hidden = false;
+        });
+    </script>
+  </body>
+</html>

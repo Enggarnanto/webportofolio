@@ -13,8 +13,11 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
-const { title, description, category, technologies, status, date, accent, demo, github } = project.data;
+const { title, description, category, technologies, status, date, accent, cover, demo, github } = project.data;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const coverUrl = cover
+  ? /^https?:\/\//.test(cover) ? cover : `${base}${cover.replace(/^\//, '')}`
+  : undefined;
 ---
 
 <BaseLayout title={`${title} — Galih Enggar Nanto`} description={description}>
@@ -33,9 +36,15 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
       </dl>
     </header>
 
-    <div class={`detail-visual accent-${accent}`} aria-hidden="true">
-      <span class="detail-shape one"></span><span class="detail-shape two"></span>
-      <div class="detail-browser"><i></i><i></i><i></i><b></b></div>
+    <div class={`detail-visual accent-${accent}`}>
+      {coverUrl ? (
+        <img class="detail-cover" src={coverUrl} alt={`Tampilan project ${title}`} />
+      ) : (
+        <div aria-hidden="true">
+          <span class="detail-shape one"></span><span class="detail-shape two"></span>
+          <div class="detail-browser"><i></i><i></i><i></i><b></b></div>
+        </div>
+      )}
     </div>
 
     <div class="detail-body">

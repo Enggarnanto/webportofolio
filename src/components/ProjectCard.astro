@@ -8,18 +8,25 @@ interface Props {
 
 const { project, index = 1 } = Astro.props;
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const { title, description, category, technologies, accent, date } = project.data;
+const { title, description, category, technologies, accent, date, cover } = project.data;
+const coverUrl = cover
+  ? /^https?:\/\//.test(cover) ? cover : `${base}${cover.replace(/^\//, '')}`
+  : undefined;
 ---
 
 <article class="project-card" data-category={category}>
   <a class={`project-visual accent-${accent}`} href={`${base}projects/${project.id}/`} aria-label={`Lihat ${title}`}>
     <span class="project-number">{String(index).padStart(2, '0')}</span>
-    <div class="visual-window" aria-hidden="true">
-      <span></span><span></span><span></span>
-      <div class="visual-content">
-        <i></i><i></i><i></i>
+    {coverUrl ? (
+      <img class="project-cover" src={coverUrl} alt="" loading="lazy" />
+    ) : (
+      <div class="visual-window" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <div class="visual-content">
+          <i></i><i></i><i></i>
+        </div>
       </div>
-    </div>
+    )}
     <span class="view-project">Lihat project <b>↗</b></span>
   </a>
   <div class="project-info">
