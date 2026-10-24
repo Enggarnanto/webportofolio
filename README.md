@@ -58,7 +58,6 @@ Sebelum login pertama:
    - Branch: `main`
    - Config path: `public/admin/config.yml`
    - Admin URL: `https://enggarnanto.github.io/webportofolio/admin/`
-4. Salin Site ID dari halaman Overview.
-5. Ganti `REPLACE_WITH_DECAP_TURBO_SITE_ID` di `public/admin/config.yml` dengan Site ID tersebut.
+4. Salin Site ID dari halaman Overview dan masukkan ke `turbo_site_id` di `public/admin/config.yml`.
 
 Setiap penyimpanan dari CMS akan membuat commit ke branch `main` dan memicu deploy GitHub Pages.
