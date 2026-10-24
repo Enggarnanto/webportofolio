@@ -1066,15 +1066,7 @@ a.tools-card:hover { transform: translateY(-4px) rotate(-.5deg); }
   border-radius: 16px;
   background: #fff;
   box-shadow: 5px 5px 0 var(--ink);
-  transition: filter .28s ease, opacity .28s ease, transform .2s ease;
-}
-.detail-media .project-media-panel:not([open]) {
-  filter: grayscale(1);
-  opacity: .72;
-}
-.detail-media .project-media-panel[open] {
-  filter: grayscale(0);
-  opacity: 1;
+  transition: transform .2s ease;
 }
 .project-media-panel > summary {
   display: grid;
@@ -1125,18 +1117,19 @@ a.tools-card:hover { transform: translateY(-4px) rotate(-.5deg); }
 .detail-media .project-gallery .gallery-grid { column-count: 3; }
 .detail-media .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .detail-media .ads-grid { grid-template-columns: 1fr; gap: 12px; }
-.project-media-panel[open] .gallery-grid img,
-.project-media-panel[open] .video-grid video,
-.project-media-panel[open] .ad-visual img {
+
+/* Homepage-only active section and image color interaction */
+.home-grayscale-ready .home-tone-section {
+  filter: grayscale(1);
+  transition: filter .45s ease;
+}
+.home-grayscale-ready .home-tone-section.is-active { filter: grayscale(0); }
+.home-grayscale-ready .home-tone-section.is-active img {
   filter: grayscale(1);
   transition: filter .35s ease;
 }
-.project-media-panel[open] .gallery-grid figure:hover img,
-.project-media-panel[open] .gallery-grid figure:active img,
-.project-media-panel[open] .video-grid figure:hover video,
-.project-media-panel[open] .video-grid figure:focus-within video,
-.project-media-panel[open] .ad-card:hover img,
-.project-media-panel[open] .ad-card:focus-within img {
+.home-grayscale-ready .home-tone-section.is-active img:hover,
+.home-grayscale-ready .home-tone-section.is-active a:focus-visible img {
   filter: grayscale(0);
 }
 

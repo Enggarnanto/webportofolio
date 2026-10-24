@@ -251,3 +251,45 @@ const projects = homeFeed.flatMap((item) => {
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const homeSections = Array.from(document.querySelectorAll<HTMLElement>('#main-content > section'));
+  let sectionUpdateQueued = false;
+
+  const updateActiveSection = () => {
+    sectionUpdateQueued = false;
+    const viewportCenter = window.innerHeight * .5;
+    let activeSection: HTMLElement | undefined;
+    let closestDistance = Number.POSITIVE_INFINITY;
+
+    for (const section of homeSections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+        activeSection = section;
+        break;
+      }
+
+      const distance = Math.min(Math.abs(rect.top - viewportCenter), Math.abs(rect.bottom - viewportCenter));
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        activeSection = section;
+      }
+    }
+
+    for (const section of homeSections) section.classList.toggle('is-active', section === activeSection);
+  };
+
+  const queueActiveSectionUpdate = () => {
+    if (sectionUpdateQueued) return;
+    sectionUpdateQueued = true;
+    window.requestAnimationFrame(updateActiveSection);
+  };
+
+  for (const section of homeSections) section.classList.add('home-tone-section');
+  document.documentElement.classList.add('home-grayscale-ready');
+  updateActiveSection();
+  window.addEventListener('load', queueActiveSectionUpdate, { once: true });
+  window.addEventListener('scroll', queueActiveSectionUpdate, { passive: true });
+  window.addEventListener('resize', queueActiveSectionUpdate);
+  window.addEventListener('hashchange', queueActiveSectionUpdate);
+</script>
