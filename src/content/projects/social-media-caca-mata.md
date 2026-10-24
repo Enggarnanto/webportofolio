@@ -8,7 +8,7 @@ featured: true
 status: "Selesai"
 role: "Graphic Designer"
 accent: "orange"
-cover: "/images/projects/caca-mata/01.webp"
+cover: "/images/projects/caca-mata/05.webp"
 galleryFolder: "/images/projects/caca-mata"
 galleryCount: 9
 galleryAlt: "Desain promosi dan media sosial Caca Mata"

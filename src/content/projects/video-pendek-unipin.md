@@ -8,7 +8,8 @@ featured: true
 status: "Selesai"
 role: "Social Media Video Editor Intern · Video Content Creator"
 accent: "violet"
-cover: "/images/projects/unipin-tutorial.webp"
+cover: "/images/projects/unipin-editing.webp"
+
 gallery:
   - image: "/images/projects/unipin-calendar.webp"
     alt: "Kalender produksi konten video UniPin"

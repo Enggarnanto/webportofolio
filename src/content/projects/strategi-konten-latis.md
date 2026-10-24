@@ -1,5 +1,5 @@
 ---
-title: "Social Media Growth — Latis"
+title: "Social Media Officer — Latiseducation"
 description: "Strategi dan produksi konten Instagram serta TikTok yang mendorong pertumbuhan jangkauan, engagement, dan views."
 date: 2024-08-01
 category: "Social Media"
