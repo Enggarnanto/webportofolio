@@ -24,8 +24,6 @@ const generatedGallery = galleryFolder
     }))
   : [];
 const completeGallery = generatedGallery.length > 0 ? generatedGallery : gallery;
-const visibleGallery = completeGallery.slice(0, 12);
-const remainingGallery = completeGallery.slice(12);
 const coverUrl = cover
   ? assetUrl(cover)
   : undefined;
@@ -73,26 +71,13 @@ const coverUrl = cover
         {completeGallery.length > 0 && (
           <section class="project-gallery" aria-label={`Galeri karya ${title}`}>
             <div class="gallery-grid">
-              {visibleGallery.map((item, index) => (
+              {completeGallery.map((item, index) => (
                 <figure class:list={{ wide: index % 5 === 0 }}>
                   <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
                   {item.caption && <figcaption>{item.caption}</figcaption>}
                 </figure>
               ))}
             </div>
-            {remainingGallery.length > 0 && (
-              <details class="gallery-more">
-                <summary>Tampilkan semua {completeGallery.length} karya <span>↓</span></summary>
-                <div class="gallery-grid">
-                  {remainingGallery.map((item, index) => (
-                    <figure class:list={{ wide: index % 5 === 0 }}>
-                      <img src={assetUrl(item.image)} alt={item.alt} loading="lazy" />
-                      {item.caption && <figcaption>{item.caption}</figcaption>}
-                    </figure>
-                  ))}
-                </div>
-              </details>
-            )}
           </section>
         )}
       </div>
